@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toping_test_box{position: fixed; top:0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7);}
+        .ani_test_box{position: fixed; top:0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.7);}
+        .hidden{display: none!important;}
+        @keyframes toping_rotate{
+            from {
+                transform: translateX(-50%) rotate(0);
+            }
+
+            to {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+    <div class="toping_test_box"></div>
+
+    <script>
+        let time_count = 1200;
+        let rendom_toping_count = 0;
+        let toping_count = 0;
+        let rendom_left = 0;
+        let rendom_width = 0;
+        let rendom_speed = 0;
+        let rendom_op = 1;
+        let toping = ["https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_01.png"
+                    ,"https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_02.png"
+                    ,"https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_03.png"
+                    ,"https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_04.png"];
+        let rendom_toping = 0;
+        let rendom_toping_rotate = 0;
+
+        let $toping_test_box = $('.toping_test_box');
+        toping_gate();
+        window.setInterval(toping_gate,time_count)
+        
+        function toping_gate(){
+            rendom_toping_count = Math.floor(Math.random() * 4 + 4);
+            for(toping_count = 0;toping_count < rendom_toping_count; toping_count++){
+                rendom_width = Math.floor(Math.random() * 4 + 3);
+                rendom_left = Math.floor(Math.random() * 100);
+                rendom_speed = Math.floor(Math.random() * 6000 + 3000);
+                rendom_op = Math.floor(Math.random() * 8 + 3) * 0.1;
+                rendom_toping_rotate = Math.floor(Math.random() * 3 + 1);
+                rendom_toping = Math.floor(Math.random() * toping.length);
+                $("<img>",{src:toping[rendom_toping],alt:"toping"})
+                .css({position: "absolute",top:"-10%",left: rendom_left + "%",width:rendom_width + "%"
+                    ,display:"none",zIndex:"-1",opacity:rendom_op,animationDuration:rendom_toping_rotate + "s",animationName:"toping_rotate"
+                    ,animationIterationCount: "infinite",animationTimingFunction: "linear"})
+                .fadeIn({queue:false})
+                .animate({top:"100%"},rendom_speed,function(){$(this).remove()})
+                .prependTo($toping_test_box);
+            };
+        };
+
+    </script>
+</body>
+</html>
