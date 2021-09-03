@@ -9,13 +9,25 @@
         .toping_test_box{position: fixed; top:0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 1);}
         .ani_test_box{position: fixed; top:0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 1);}
         .hidden{display: none!important;}
+        .lantern{position: fixed; top:50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 500px; background-color: black;}
+        .item{box-shadow: 0 0 10px 10px yellow;}
         @keyframes toping_rotate{
             from {
-                transform: translateX(-50%) rotate(0);
+                transform: rotate(-20deg);
             }
 
             to {
-                transform: translateX(-50%) rotate(360deg);
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes toping_shadow{
+            from {
+                box-shadow: 0px 0px 0px yellow;
+            }
+
+            to {
+                box-shadow: 0px 0px 20px yellow;
             }
         }
 
@@ -23,7 +35,10 @@
     <script src="https://code.jquery.com/jquery.min.js"></script>
 </head>
 <body>
-    <div class="toping_test_box"></div>
+    <div class="toping_test_box hidden"></div>
+    <div class="lantern">
+        <img class="item" src="lantern01.png" alt="">
+    </div>
 
     <script>
         let time_count = 1200;
@@ -33,10 +48,10 @@
         let rendom_width = 0;
         let rendom_speed = 0;
         let rendom_op = 1;
-        let toping = ["https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_01.png"
-                    ,"https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_02.png"
-                    ,"https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_03.png"
-                    ,"https://image.yeoboya.com/imgs/new_wedding/new_jsp/evnt/evnt_ice/img_evnt_ice_topping_04.png"];
+        let toping = ["lantern01.png"
+                    ,"lantern02.png"
+                    ,"lantern03.png"
+                    ,"lantern04.png"];
         let rendom_toping = 0;
         let rendom_toping_rotate = 0;
 
@@ -45,20 +60,20 @@
         window.setInterval(toping_gate,time_count)
         
         function toping_gate(){
-            rendom_toping_count = Math.floor(Math.random() * 4 + 4);
+            rendom_toping_count = Math.floor(Math.random() * 2 + 2);
             for(toping_count = 0;toping_count < rendom_toping_count; toping_count++){
-                rendom_width = Math.floor(Math.random() * 4 + 3);
+                rendom_width = Math.floor(Math.random() * 10 + 3);
                 rendom_left = Math.floor(Math.random() * 100);
-                rendom_speed = Math.floor(Math.random() * 6000 + 3000);
+                rendom_speed = Math.floor(Math.random() * 30000 + 8000);
                 rendom_op = Math.floor(Math.random() * 8 + 3) * 0.1;
-                rendom_toping_rotate = Math.floor(Math.random() * 3 + 1);
+                rendom_toping_rotate = Math.floor(Math.random() * 3 + 2);
                 rendom_toping = Math.floor(Math.random() * toping.length);
                 $("<img>",{src:toping[rendom_toping],alt:"toping"})
-                .css({position: "absolute",top:"-10%",left: rendom_left + "%",width:rendom_width + "%"
-                    ,display:"none",zIndex:"-1",opacity:rendom_op,animationDuration:rendom_toping_rotate + "s",animationName:"toping_rotate"
-                    ,animationIterationCount: "infinite",animationTimingFunction: "linear"})
+                .css({position: "absolute",bottom:"-10%",left: rendom_left + "%",width:rendom_width + "%"
+                    ,display:"none",zIndex:"-1",animationDuration:rendom_toping_rotate + "s",animationName:"toping_rotate"
+                    ,animationIterationCount: "infinite",animationTimingFunction: "linear",animationDirection:"alternate"})
                 .fadeIn({queue:false})
-                .animate({top:"100%"},rendom_speed,function(){$(this).remove()})
+                .animate({bottom:"100%"},rendom_speed,function(){$(this).remove()})
                 .prependTo($toping_test_box);
             };
         };
