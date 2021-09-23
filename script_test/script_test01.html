@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="test">a
+        <div class="test01">asd</div>
+    </div>
+    <div class="test">b</div>
+    <div class="test">c</div>
+    <div class="test">d</div>
+    <div class="test">e</div>
+    <script>
+        let items = document.querySelectorAll(".test");
+        for(let i = 0 ; i < items.length ; i++){
+            items[i].addEventListener('click',(e) => {
+                console.log(this,e.target);
+            })
+        }
+    </script>
+</body>
+</html>
