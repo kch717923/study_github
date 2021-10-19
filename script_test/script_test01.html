@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .qwer{
+            display: block;
+            width: 500px;
+            height: 300px;
+            background-color: antiquewhite;
+        }
+    </style>
 </head>
 <body>
     <div class="test">a
@@ -14,13 +22,62 @@
     <div class="test">c</div>
     <div class="test">d</div>
     <div class="test">e</div>
+    <div class="yb_video_area">
+        <iframe class="iframe_pr" type="text/html" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="320" src="https://www.youtube.com/embed/xdQ1NHiGEAc?autoplay=0&amp;controls=1&amp;rel=0&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fm.yeoboya.com&amp;widgetid=1"></iframe>
+    </div>
+    <label class="qwer">
+        <input class="asdf" type="checkbox">
+    </label>
     <script>
         let items = document.querySelectorAll(".test");
         for(let i = 0 ; i < items.length ; i++){
             items[i].addEventListener('click',(e) => {
-                console.log(this,e.target);
+                console.log(this, e.target);
             })
         }
+
+        //var 를 쓰면 window 객체의 a
+        //let 을 쓰면 어디로 가냐..?
+        let a = 10;
+        console.log(this.a)
+
+        let obj = {
+            a : 1,
+            func:function(){console.log(this)}
+        }
+
+        obj.func();
+
+        function qwe(){
+            return function dfg (){console.log("일반 함수 실행")}
+        }
+
+        qwe();
+        function qwer(){
+            return () => {console.log("화살표 함수 실행")}
+        }
+        let abc = qwer();
+        abc();
+
+        let greeting = (person,test) =>{
+            let name = person ? person.name : 'tranger'
+            return `howdy ${name}`
+        }
+
+        console.log(greeting({name:'alice'}));
+        console.log(greeting(null));
+        console.log(typeof(person));
+
+        function obj01 (name1){
+            let name232 = "우오앙"
+        }
+        let box = {
+            box1 : "name1",
+            box2 : "name2",
+            box3 : function(){return "하하"}
+        }
+        
+        console.log()
     </script>
 </body>
 </html>

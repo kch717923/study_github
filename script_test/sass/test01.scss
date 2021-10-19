@@ -1,0 +1,290 @@
+/*@import "main","test";*/
+
+
+.section{
+    width: 100%;
+    .list{
+        padding:20px;
+        li{
+            float: left;
+        }
+    }
+}
+
+.btn{
+    position:absolute;
+    &.active{
+        color: red;
+    }
+}
+
+.list{
+    li{
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
+.fs{
+    &-small{font-size: 12px;}
+    &-medium{font-size: 14px;}
+    &-large{font-size: 16px;}
+}
+
+.list{
+    $w:100px;
+    $h:50px;
+    li{
+        width: $w;
+        height:$h;
+    }
+    @at-root .box{
+        width: $w;
+        height: $h;
+    }
+}
+
+.box {
+    font: {
+        weight: bold;
+        size:10px;
+        family:sans-serif;
+    };
+    margin: {
+        top:10px;
+        left:20px;
+    };
+    padding: {
+        bottom: 40px;
+        right: 30px;
+    };
+}
+
+$color-primary: #e96900;
+$url-images : "/test/test01/";
+$w:200px;
+
+.box {
+    width: $w;
+    margin-left: $w;
+    background: $color-primary url($url-images + "bg.png");
+}
+
+$red:#FF0000;
+$blue:#0000FF;
+
+$color-primary:$blue;
+$color-danger:$red;
+
+.box{
+    color:$color-primary;
+    background: $color-danger;
+}
+
+$color-test:red;
+
+.box{
+    $color-test:blue !default;
+    background: $color-test;
+}
+
+$family: unquote("driid+sans");
+@import url("http://fonts.googleapis.com/css?family=#{$family}");
+
+$width:90px;
+div {
+    @if not ($width > 100px) {
+        height: 300px;
+    }
+}
+
+@mixin large-text {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: orange;
+
+    &::after {
+        content: "!!";
+    }
+
+    span.icon{
+        background: url("/imgs/img_ice_topping_01.png");
+    }
+}
+
+h1 {@include large-text()}
+
+@mixin dash-line($width:1px,$color:block){
+    border: $width dashed $color;
+}
+
+.box1 {
+    @include dash-line();
+}
+
+.box2 {
+    @include dash-line(4px,blue);
+}
+
+@mixin position (
+    $p: absolute,
+    $t: null,
+    $b: null,
+    $l: null,
+    $r: null
+) {
+    position: $p;
+    top:$t;
+    bottom:$b;
+    left:$l;
+    right: $r;
+}
+
+.absolute{
+    @include position($b:10px,$r:20px);
+}
+
+.fixed{
+    @include position(
+        $p:fixed,
+        $t:20px,
+        $l:10px
+    )
+}
+
+@mixin bg(
+    $w,
+    $h,
+    $bg-values...
+) {
+    width: $w;
+    height: $h;
+    background: $bg-values;
+}
+
+div{
+    @include bg(
+        100px,
+        200px,
+        url("/imgs/img_ice_topping_02.png") no-repeat 10px 20px,
+        url("/imgs/img_ice_topping_03.png"),
+        url("/imgs/img_ice_topping_04.png")
+    )
+}
+
+@mixin icon($url) {
+    &::after {
+        content: $url;
+        @content;
+    }
+}
+
+.icon1 {
+    @include icon("/imges/icon.png");
+}
+
+.icon2{
+    @include icon("/imges/icon.png"){
+        position: absolute;
+    }
+}
+
+$max-width:980px;
+
+@function cst_columns($number:15,$columns:12) {
+    @return $max-width * (3)
+};
+
+.box_group{
+    width: $max-width;
+
+    .box1{
+        width: cst_columns();
+    }
+    .box2{
+        width: cst_columns(8);
+    }
+    .box3{
+        width: cst_columns(3);
+    }
+}
+
+$width:555px;
+
+div{
+    width: if($width > 300px, $width, null);
+}
+
+@function cst_limitsize($size){
+    @if $size >= 0 and $size <=200px{
+        @return 200px;
+    } @else {
+        @return 800px;
+    }
+}
+
+div{
+    width: cst_limitsize(180px);
+    height: cst_limitsize(340px);
+}
+
+@for $i from 1 through 3 {
+    .through:nth-child(#{$i}) {
+        width: 20px * $i
+    }
+}
+
+@for $i from 1 to 3{
+    .test:nth-child(#{$i}){
+        height: 20px * $i;
+    }
+}
+
+$fruits:(apple,banana,mango);
+
+.fruits{
+    @each $name in $fruits{
+        .li-#{$name}{
+            background: url("img/#{$name}.png");
+        }
+    }
+}
+
+$test01_size:("1":10px,"2":20px,"3":30px);
+$test02_size:("4":10px,"5":20px,"6":30px);
+$test03_size:map-merge($test01_size, $test02_size);
+
+$test04:();
+$test04:map-merge((
+"1":11px,
+"2":22px,
+"3":33px
+),$test04);
+
+@each $name, $size in $test03_size {
+    .font_test-#{$name}{
+        font-size: $size;
+    }
+}
+
+
+$black:                #000000;
+
+$elevations: ();
+$elevations: map-merge((
+    1: unquote("0 1px 3px " + rgba($black, .12) + ", 0 1px 2px " + rgba($black, .24)),
+    2: unquote("0 3px 6px " + rgba($black, .16) + ", 0 3px 6px " + rgba($black, .23)),
+    3: unquote("0 10px 20px " + rgba($black, .19) + ", 0 6px 6px " + rgba($black, .23)),
+    4: unquote("0 14px 28px " + rgba($black, .25) + ", 0 10px 10px " + rgba($black, .22)),
+    5: unquote("0 19px 38px " + rgba($black, .3) + ", 0 15px 12px " + rgba($black, .22)),
+), $elevations);
+
+.shadow{
+    @each $name, $elevation in $elevations {
+        &#{$name}{
+            box-shadow: $elevation;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+@import "./main";
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                  Default                   □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+
+//------------------------------------------------
+// Default Setting
+//------------------------------------------------
+html,body{@include font-default-set();}
+button, input, select, textarea{@include font-default-set();}
+
+.hidden{display:none!important;}
+.blind{position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0);}
+.space{position:relative; height:12px; background-color:#F1F1F1; overflow: hidden;}
+.space::before{content:""; position:absolute; top:-1px; left:0; width:100%; height:1px; box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);}
+.form{width:100%; height:auto;}
+.hr{height:1px; margin:0 15px; background-color:#F1F1F1;}
+.pointer{cursor: pointer !important;}
+
+/* overflow */
+.ovh{overflow:hidden;}
+.ova{overflow:auto;}
+
+
+// font-size
+.fs{
+    @each $name, $size in $font-size {
+        &#{$name} {
+            font-size: #{$size} !important;
+        }
+    }
+}
+
+// font-weight
+.fw{
+    @each $name, $weight in $font-weight {
+        &#{$name} {
+            font-weight: #{$weight} !important;
+        }
+    }
+}
+
+// font-color
+.fc{
+    @each $name, $color in $font-color {
+        &#{$name} {
+            color: #{$color} !important;
+        }
+    }
+    @each $name, $color in $font-color-store {
+        [data-type="portal"] &#{$name} {
+            color: #{$color} !important;
+        }
+    }
+}
+
+/* text cut */
+.tc{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.tc-1{display:-webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; text-overflow: ellipsis; word-break: break-all; overflow: hidden;}
+/* text pre-wrap */
+.tpw{white-space: pre-wrap;}
+
+/* text align */
+.tac{text-align: center;}
+.tal{text-align: left;}
+.tar{text-align: right;}
+
+// padding
+.p{
+    @each $name, $side in $sides{
+        &#{$name}{
+            @each $size in $sizes{
+                &#{$size} {
+                    @if ($name == "y"){
+                        padding-top: #{$size}px !important;
+                        padding-bottom: #{$size}px !important;
+                    } @else if ($name == "x") {
+                        padding-left : #{$size}px !important;
+                        padding-right : #{$size}px !important;
+                    } @else {
+                        padding-#{$side} : #{$size}px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// margin
+.m{
+    @each $name, $side in $sides{
+        &#{$name}{
+            @each $size in $sizes{
+                &#{$size} {
+                    @if ($name == "y"){
+                        margin-top: #{$size}px !important;
+                        margin-bottom: #{$size}px !important;
+                    } @else if ($name == "x") {
+                        margin-left : #{$size}px !important;
+                        margin-right : #{$size}px !important;
+                    } @else {
+                        margin-#{$side} : #{$size}px !important;
+                    }
+                }
+            }
+            &a{
+                @if ($name == "y"){
+                    margin-top: auto !important;
+                    margin-bottom: auto !important;
+                } @else if ($name == "x") {
+                    margin-left : auto !important;
+                    margin-right : auto !important;
+                } @else {
+                    margin-#{$side} : auto !important;
+                }
+            }
+        }
+    }
+}
+
+.shadow{
+    @each $name, $elevation in $elevations {
+        &#{$name}{
+            box-shadow: $elevation;
+        }
+    }
+}

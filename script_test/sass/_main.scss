@@ -1,0 +1,147 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                  Variables                 □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+
+//------------------------------------------------
+// Color System
+//------------------------------------------------
+$white:                #FFFFFF;
+$gray-f1:              #F1F1F1;
+$gray-d4:              #D4D4D4;
+$gray-b8:              #B8B8B8;
+$gray-90:              #909090;
+$gray-50:              #505050;
+$gray-20:              #202020;
+$black:                #000000;
+
+$primary-400:          #4169E1;
+$primary-500:          #3654AE;
+$primary-tint:         #446FEE;
+
+$primary-store-400:    #FF6E6E;
+$primary-store-500:    #FF5656;
+
+$error:                #FF1919;
+$warning:              #FF9900;
+$positive:             #17BC6F;
+$success:              #81A0FF;
+
+$grays: ();
+$grays: map-merge((
+    "f1": $gray-f1,
+    "d4": $gray-d4,
+    "b8": $gray-b8,
+    "90": $gray-90,
+    "50": $gray-50,
+    "20": $gray-20
+), $grays);
+
+$colors: ();
+$colors: map-merge((
+    "400":       $primary-400,
+    "500":       $primary-500,
+    "info":      $primary-tint,
+    "error":     $error,
+    "warning":   $warning,
+    "positive":  $positive,
+    "success":   $success
+), $colors );
+
+//------------------------------------------------
+// typography
+//------------------------------------------------
+
+$font-size: ();
+$font-size: map-merge((
+    "11":    11px,
+    "12":    12px,
+    "13":    13px,
+    "14":    14px,
+    "15":    15px,
+    "16":    16px,
+    "17":    17px,
+    "18":    18px,
+    "19":    19px,
+    "20":    20px,
+    "21":    21px,
+    "22":    22px,
+    "24":    24px,
+    "28":    28px,
+    "32":    32px
+), $font-size);
+
+$font-weight: ();
+$font-weight: map-merge((
+    "r":     400,
+    "m":     500,
+    "b":     700,
+), $font-weight);
+
+$font-color: ();
+$font-color: map-merge((
+    "20":      $gray-20,
+    "50":      $gray-50,
+    "90":      $gray-90,
+    "b8":      $gray-b8,
+    "d4":      $gray-d4,
+    "f1":      $gray-f1,
+    "b":       $black,
+    "w":       $white,
+    "err":     $error,
+    "warn":    $warning,
+    "pos":     $positive,
+    "suc":     $success,
+    "p-50":    $primary-500,
+    "p-40":    $primary-400,
+), $font-color);
+$font-color-store: ();
+$font-color-store: map-merge((
+    "p-50":    $primary-store-500,
+    "p-40":    $primary-store-400
+), $font-color-store);
+
+$font-base-color:        map-get($font-color, "50");
+$font-base-weight:       map-get($font-weight, "m");
+$font-base-size:         map-get($font-size, "15");
+
+$font-letter-spacing:    -0.5px;
+
+@mixin font-default-set {
+    font: {
+        family:          'NotoSansKR',sans-serif;
+        size:            $font-base-size;
+        weight:          $font-base-weight;
+    }
+    color:               $font-base-color;
+    letter-spacing:      $font-letter-spacing;
+}
+
+//------------------------------------------------
+// Elevation
+//------------------------------------------------
+
+$elevations: ();
+$elevations: map-merge((
+    1: unquote("0 1px 3px " + rgba($black, .12) + ", 0 1px 2px " + rgba($black, .24)),
+    2: unquote("0 3px 6px " + rgba($black, .16) + ", 0 3px 6px " + rgba($black, .23)),
+    3: unquote("0 10px 20px " + rgba($black, .19) + ", 0 6px 6px " + rgba($black, .23)),
+    4: unquote("0 14px 28px " + rgba($black, .25) + ", 0 10px 10px " + rgba($black, .22)),
+    5: unquote("0 19px 38px " + rgba($black, .3) + ", 0 15px 12px " + rgba($black, .22)),
+), $elevations);
+
+
+//------------------------------------------------
+// Size
+//------------------------------------------------
+$sides:(
+        "t":top,
+        "r":right,
+        "b":bottom,
+        "l":left,
+        "x":null,
+        "y":null
+    );
+$sizes:(0,2,4,6,8,10,12,15,16,20,24,28,32,36,40,44,48,56,64);
