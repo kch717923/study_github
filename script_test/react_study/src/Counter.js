@@ -1,24 +1,30 @@
-import React, { Component } from 'react';
-
-class Counter extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            number: 0
+import React, { useState } from 'react';
+const Counter = () => {
+    const [form, setForm] = useState({
+        username:'',
+        message:''
+    });
+    const [username,message] = form;
+    const onChange = e =>{
+        const nextForm = {
+            ...form,
+            [e.target.name]: e.target.value
         };
+        setForm(nextForm)
     }
-    render() {
-        const {number} = this.state;
-        return (
-            <div>
-                <h1>{number}</h1>
-                <button
-                onClick={() => {this.setState({number:number + 1})}}>
-                    +1
-                </button>
-            </div>
-        );
-    }
-}
+    const onClick = () =>{
+        alert(username + ':' + message);
+        setForm({
+            username:'',
+            message:''
+        });
+    };
+    
+    return (
+        <div>
+            
+        </div>
+    );
+};
 
 export default Counter;
