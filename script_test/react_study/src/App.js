@@ -1,6 +1,8 @@
-import './App.css';
-import MyCompo from './MyCompo.js';
-import Counter from './Counter.js';
+import './css/App.css';
+import './css/validation.css'
+import Counter from './componnents/Counter';
+import ValidationSample from './componnents/validationSample'
+import IterationSample from './componnents/IterationSample'
 
 function App() {
   return (
