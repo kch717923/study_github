@@ -1,13 +1,34 @@
-import './css/App.css';
-import './css/validation.css'
-import Counter from './componnents/Counter';
-import ValidationSample from './componnents/validationSample'
-import IterationSample from './componnents/IterationSample'
+import React, { useState } from 'react';
+import TodoTemplate from './componnents/TodoTemplate';
+import TodoInsert from './componnents/TodoInsert';
+import TodoList from './componnents/TodoList';
+import './css/bundle.css'
+
 
 function App() {
+  const [todos,setTodos] = useState([
+    {
+      id:1,
+      text:'test text number1',
+      checked: true
+    },
+    {
+      id:2,
+      text:'test text number2',
+      checked: true
+    },
+    {
+      id:3,
+      text:'test text number3',
+      checked: true
+    }
+  ])
   return (
     <>
-      <Counter/>
+      <TodoTemplate>
+        <TodoInsert/>
+        <TodoList todos={todos} />
+      </TodoTemplate>
     </>
   );
 }
