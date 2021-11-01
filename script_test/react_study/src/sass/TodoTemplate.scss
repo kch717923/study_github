@@ -1,0 +1,21 @@
+@import './setup.scss';
+
+.todotemplate{
+    width: 512px;
+    margin: 0 auto;
+    margin-top: 300px;
+    border-radius: 4px;
+    overflow: hidden;
+    &__title{
+        background: #22b8cf;
+        color: white;
+        height: 50px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__content{
+        background: white;
+    }
+}

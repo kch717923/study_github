@@ -1,13 +1,16 @@
-import './css/App.css';
-import './css/validation.css'
-import Counter from './componnents/Counter';
-import ValidationSample from './componnents/validationSample'
-import IterationSample from './componnents/IterationSample'
+import TodoTemplate from './componnents/TodoTemplate';
+import TodoInsert from './componnents/TodoInsert';
+import TodoList from './componnents/TodoList';
+import './css/bundle.css'
+
 
 function App() {
   return (
     <>
-      <Counter/>
+      <TodoTemplate>
+        <TodoInsert/>
+        <TodoList/>
+      </TodoTemplate>
     </>
   );
 }
