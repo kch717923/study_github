@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
->>>>>>> c85291924eab61898d50081d9767221257d4d3b5
 import TodoTemplate from './componnents/TodoTemplate';
 import TodoInsert from './componnents/TodoInsert';
 import TodoList from './componnents/TodoList';
@@ -23,7 +20,7 @@ function App() {
     {
       id:3,
       text:'test text number3',
-      checked: true
+      checked: false
     }
   ])
   return (

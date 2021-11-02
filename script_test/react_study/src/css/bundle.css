@@ -8,10 +8,10 @@ body{margin:0;padding:0;background:#e9ecef}
 .todolistitem{padding:15px;display:flex;align-items:center}
 .todolistitem:nth-child(even){background:#f8f9fa}
 .todolistitem__checkbox{cursor:pointer;flex:1;display:flex;align-items:center}
+.todolistitem__checkbox.checked svg{color:#22b8cf}
+.todolistitem__checkbox.checked .todolistitem__txt{color:#adb5bd;text-decoration:line-through}
 .todolistitem svg{font-size:30px}
 .todolistitem__txt{margin-left:20px}
-.todolistitem.checked svg{color:#22b8cf}
-.todolistitem.checked .todolistitem__txt{color:#adb5bd;text-decoration:line-through}
 .todolistitem__remove{display:flex;align-items:center;font-size:15px;color:#ff6b6b;cursor:pointer}
 .todolistitem__remove:hover{color:#ff8787}
 .todolistitem+.todolistitem{border-top:1px solid #dee2e6}
