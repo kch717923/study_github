@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState } from 'react';
 import axios from 'axios';
-import C_Header from './componnents/C_Header';
-import C_Body from './componnents/C_Body';
-import C_Title from './componnents/C_Title';
-import C_Memo from './componnents/C_Memo';
-import C_Option from './componnents/C_Option';
-import Btn from './componnents/Btn';
+import C_Header from './components/C_Header';
+import C_Body from './components/C_Body';
+import C_Title from './components/C_Title';
+import C_Memo from './components/C_Memo';
+import C_Option from './components/C_Option';
+import Btn from './components/Btn';
 import './css/bundle.css'
 
 
