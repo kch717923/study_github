@@ -1,0 +1,10 @@
+.c_memolist{
+    display: flex;
+    align-items: center;
+    &__txt{
+        width: 100%;
+    }
+    &__del{
+        width: 50px;
+    }
+}

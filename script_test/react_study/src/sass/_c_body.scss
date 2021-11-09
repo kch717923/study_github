@@ -1,0 +1,29 @@
+.c_body{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    &__content{
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    &__view{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 40px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 20px rgba(#000000,.5);
+    }
+    &__option{
+        width: 100%;
+        padding: 40px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 20px rgba(#000000,.5);
+        background: #ddd;
+    }
+}

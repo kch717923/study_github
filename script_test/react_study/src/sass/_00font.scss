@@ -1,0 +1,20 @@
+$font-name: "NotoSansKR";
+$font-Route: "../font/";
+$font-styles:(
+    "NotoSansKR-Black":900,
+    "NotoSansKR-Bold":700,
+    "NotoSansKR-Medium":500,
+    "NotoSansKR-Regular":400,
+    "NotoSansKR-Light":300,
+    "NotoSansKR-Thin":100
+);
+
+@each $font-style,$font-size in $font-styles {
+    @font-face {
+        font-family:$font-name;
+        src: url($font-Route + $font-style + ".woff2") format('woff2'),
+        url($font-Route + $font-style + ".woff") format('woff')
+        url($font-Route + $font-style + ".otf") format('opentype');
+        font-weight: $font-size;
+    }
+}

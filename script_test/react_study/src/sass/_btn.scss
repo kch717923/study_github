@@ -1,0 +1,27 @@
+.btn{
+    position: relative;
+    width: 100%;
+
+    &__default{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        border-radius: 8px;
+        box-sizing: border-box;
+        background-color: $primary-500;
+        
+        &:hover{
+            background-color: $primary-400;
+        }
+        
+        &-m{
+            height: 40px;
+        }
+    }
+
+    &__txt{
+        color:$white;
+        white-space: nowrap;
+    }
+}

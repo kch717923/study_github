@@ -1,0 +1,14 @@
+.c_memo{
+    position: relative;
+    &__input_box{
+        display: flex;
+        align-items: center;
+    }
+    &__input{
+        border: 1px solid black;
+        width: 100%;
+    }
+    &__input_submit{
+        width: 50px;
+    }
+}
