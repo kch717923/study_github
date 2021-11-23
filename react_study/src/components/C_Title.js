@@ -49,6 +49,7 @@ const C_Title = ({compo}) => {
             <div 
                 contenteditable={edit}
                 onKeyDown={onChange}
+                data-test={value}
             >{title}</div>
         </div>
     );

@@ -5,15 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+        }
+        .red,.green,.blue{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .red{
+            top: 0;
+            left: 0;
+            background: red;
+        }
+        .green{
+            top: 20px;
+            left: 20px;
+            background: green;
+        }
+        .blue{
+            top: 40px;
+            left: 40px;
+            background: blue;
+        }
+    </style>
 </head>
 <body>
+    <div class="box">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </div>
     <script>
-        function Test(){
-            return console.log("메롱")
-        }
-
-
-        let test = new Test();
     </script>
 </body>
 </html>
