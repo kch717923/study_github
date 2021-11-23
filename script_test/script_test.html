@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box{
+        div:first-child{
             position: relative;
+            z-index: 1;
         }
         .red,.green,.blue{
             width: 100px;
@@ -15,6 +16,7 @@
             position: absolute;
         }
         .red{
+            z-index: 1;
             top: 0;
             left: 0;
             background: red;
@@ -32,12 +34,14 @@
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="red"></div>
-        <div class="green"></div>
-        <div class="blue"></div>
+    <div>
+        <span class="red"></span>
     </div>
-    <script>
-    </script>
+    <div>
+        <span class="green"></span>
+    </div>
+    <div>
+        <span class="blue"></span>
+    </div>
 </body>
 </html>
