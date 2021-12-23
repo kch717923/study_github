@@ -1,20 +1,20 @@
-body{margin:0;padding:0;background:#e9ecef}
-.todoinsert{display:flex;background:#495057}
-.todoinsert__txt{background:0 0;outline:0;border:none;padding:10px;font-size:14px;line-height:1.5;color:#fff;width:100%}
-.todoinsert__txt::placeholder{color:#dee2e6}
-.todoinsert__btn{background:0 0;outline:0;border:none;background:#868e96;color:#fff;padding:0 10px;font-size:13px;display:flex;align-items:center;cursor:pointer;transition:.1s background ease-in}
-.todoinsert__btn:hover{background:#adb5bd}
-.todolistitem{padding:15px;display:flex;align-items:center}
-.todolistitem:nth-child(even){background:#f8f9fa}
-.todolistitem__checkbox{cursor:pointer;flex:1;display:flex;align-items:center}
-.todolistitem__checkbox.checked svg{color:#22b8cf}
-.todolistitem__checkbox.checked .todolistitem__txt{color:#adb5bd;text-decoration:line-through}
-.todolistitem svg{font-size:30px}
-.todolistitem__txt{margin-left:20px}
-.todolistitem__remove{display:flex;align-items:center;font-size:15px;color:#ff6b6b;cursor:pointer}
-.todolistitem__remove:hover{color:#ff8787}
-.todolistitem+.todolistitem{border-top:1px solid #dee2e6}
-.todolist{min-height:320px;max-height:513px;overflow-y:auto}
-.todotemplate{width:512px;margin:0 auto;margin-top:300px;border-radius:4px;overflow:hidden}
-.todotemplate__title{background:#22b8cf;color:#fff;height:50px;font-size:15px;display:flex;align-items:center;justify-content:center}
-.todotemplate__content{background:#fff}
+.newsitem{display:flex}
+.newsitem .thumbnail{margin-right:1rem}
+.newsitem .thumbnail img{display:block;width:160px;height:100px;object-fit:cover}
+.newsitem .contents h2{margin:0}
+.newsitem .contents h2 a{color:#000}
+.newsitem .contents p{margin:0;line-height:1.5;margin-top:.5rem;white-space:normal}
+.newsitem+.newsitem{margin-top:3rem}
+.newslist{box-sizing:border-box;padding-bottom:3rem;width:768px;margin:0 auto;margin-top:2rem}
+@media screen and (max-width:768px){
+.newslist{width:100%;padding-left:1rem;padding-right:1rem}
+}
+.categories{display:flex;padding:1rem;width:768px;margin:0 auto}
+@media screen and (max-width:768px){
+.categories{width:100%;overflow-x:auto}
+}
+.category{font-size:1.125rem;cursor:pointer;white-space:pre;text-decoration:none;color:inherit;padding-bottom:.25rem}
+.category:hover{color:#495057}
+.category.active{font-weight:700;border-bottom:2px solid #22b8cf;color:#22b8cf}
+.category.active:hover{color:#3bc9db}
+.category+.category{margin-left:1rem}

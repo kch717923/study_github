@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*function increase(number){
+        const promise = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                const result = number + 10;
+                if (result > 50){
+                    const e = new Error('numbertoobig')
+                    return reject(e)
+                }
+                resolve(result)
+            },1000)
+        })
+        return promise
+    }
+
+    increase(0)
+        .then(number =>{
+            console.log(number);
+            return increase(number)
+        })
+        .then(number =>{
+            console.log(number);
+            return increase(number)
+        })
+        .then(number =>{
+            console.log(number);
+            return increase(number)
+        })
+        .catch(e =>{
+            console.log(e)
+        })
+
+    function increace(number){
+        const promise = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                const result = number + 10;
+                if(result > 50){
+                    const e = new Error('numbertoobig')
+                    return reject(e)
+                }
+                resolve(result)
+            },1000)
+        })
+        return promise
+    }
+
+    async function runTasks(){
+        try{
+            let result = await increace(0);
+            console.log(result)
+            result = await increace(result);
+            console.log(result)
+            result = await increace(result);
+            console.log(result)
+        }
+        catch(e){
+            console.log(e)
+        }
+    }*/
+
+    /*function promise_test(num){
+        const promise = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                console.log("비동기 작업 수행중..")
+                const result = num + 10;
+                if(result > 30){
+                    const e = new Error("에러났음")
+                    return reject(e)
+                }else{
+                    return resolve(result)
+                }
+            },1000)
+        })
+        return promise
+    }
+
+    promise_test(0)
+        .then((num)=>{
+
+        })
+        .then((num)=>{
+            console.log(num)
+        })*/
+        new Promise(function(resolve, reject){
+            setTimeout(function() {
+                resolve(1);
+            }, 2000);
+            })
+            .then(function(result) {
+            console.log(result); // 1
+            return result + 10;
+            })
+            .then(function(result) {
+            console.log(result); // 11
+            return result + 20;
+            })
+            .then(function(result) {
+            console.log(result); // 31
+            });
+
+
+        function promise_test_1(){
+            const promise_test_2 = new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    ResizeObserver
+                })
+            })
+        }
+</script>
+</html>
