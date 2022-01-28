@@ -1,0 +1,47 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                    Color                   □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+$black:                #000000;
+$gray-20:              #202020;
+$gray-50:              #505050;
+$gray-90:              #909090;
+$gray-a4:              #A4A4A4;
+$gray-b8:              #B8B8B8;
+$gray-d4:              #D4D4D4;
+$gray-e1:              #E1E1E1;
+$gray-f1:              #F1F1F1;
+$gray-fa:              #FAFAFA;
+$white:                #FFFFFF;
+
+$primary-700:          #253066;
+$primary-600:          #2D418B;
+$primary-500:          #3654AE;
+$primary-400:          #4169E1;
+$primary-300:          #427FCF;
+$primary-250:          #6986CB;
+$primary-200:          #81A0FF;
+$primary-100:          #EFF3FF;
+$primary-50:           #F4F7F9;
+
+$error:                #FF1919;
+$warning:              #FF9900;
+$positive:             #17BC6F;
+$success:              #81A0FF;
+
+$new:                  #FF5656;
+
+$bg_dim:               rgba(0,0,0,.4);
+$bg_dim-dark:          rgba(0,0,0,.8);
+
+$colors: ();
+$colors: map-merge((
+    "400":       $primary-400,
+    "500":       $primary-500,
+    "error":     $error,
+    "warning":   $warning,
+    "positive":  $positive,
+    "success":   $success
+), $colors );

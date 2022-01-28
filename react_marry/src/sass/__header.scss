@@ -1,0 +1,15 @@
+.header{
+    @include position(relative,300);
+    @include flex($ai:center);
+    background: $white;
+    height: 45px;
+    border: 1px solid $gray-f1;
+    box-sizing: border-box;
+    &__btn_wrap{
+        @include flex($ai:center);
+        flex: 0 0 auto;
+    }
+    &__btn{
+        flex:0 0 auto;
+    }
+}

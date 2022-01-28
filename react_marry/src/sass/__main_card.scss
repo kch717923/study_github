@@ -1,0 +1,37 @@
+.main_card{
+    margin: 10px;
+    border: 1px solid $gray-d4;
+    margin-bottom: 3px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    &__ment_box{
+        padding: 5px;
+        min-height: 70px;
+    }
+    &__sub_box{
+
+    }
+    &__marry, &__re_marry{
+        width: 30px;
+        height: 17px;
+        line-height: 17px;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        padding: 0 3px;
+        margin-right: 5px;
+    }
+    &__marry{
+        background: #ff7b71;
+    }
+    &__re_marry{
+        background: #61b7b2;
+    }
+    &__nickname{
+        color: #427fcf;
+        margin-right: 10px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

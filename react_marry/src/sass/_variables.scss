@@ -1,0 +1,227 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                  Variables                 □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+//------------------------------------------------
+// Size
+//------------------------------------------------
+$sides:(
+    "t":top,
+    "r":right,
+    "b":bottom,
+    "l":left,
+    "x":null,
+    "y":null,
+    "null":null,
+);
+$sizes:(0,2,4,6,8,10,12,15,16,20,24,28,32,36,40,44,48,56,64);
+
+//------------------------------------------------
+// Break Point
+//------------------------------------------------
+
+$pc-width:460px;
+
+$break-points: ();
+$break-points: map-merge((
+    "pc":            unquote("(min-width:#{$pc-width})"),
+    "hover":         unquote("(hover: hover)")
+), $break-points);
+
+//------------------------------------------------
+// Img
+//------------------------------------------------
+$url_marry: unquote("https://image.yeoboya.com/imgs/new_wedding");
+$url_store: unquote("https://image.yeoboya.com/imgs/new_wedding_portal");
+
+//------------------------------------------------
+// Shadow
+//------------------------------------------------
+$shadows: ();
+$shadows: map-merge((
+    1: unquote("0 1px 3px " + rgba($black, .12) + ", 0 1px 2px " + rgba($black, .24)),
+    2: unquote("0 3px 6px " + rgba($black, .16) + ", 0 3px 6px " + rgba($black, .23)),
+    3: unquote("0 10px 20px " + rgba($black, .19) + ", 0 6px 6px " + rgba($black, .23)),
+    4: unquote("0 14px 28px " + rgba($black, .25) + ", 0 10px 10px " + rgba($black, .22)),
+    5: unquote("0 19px 38px " + rgba($black, .3) + ", 0 15px 12px " + rgba($black, .22)),
+), $shadows);
+
+//------------------------------------------------
+// typography
+//------------------------------------------------
+$font-size: ();
+$font-size: map-merge((
+    "10":    10px,
+    "11":    11px,
+    "12":    12px,
+    "13":    13px,
+    "14":    14px,
+    "15":    15px,
+    "16":    16px,
+    "17":    17px,
+    "18":    18px,
+    "19":    19px,
+    "20":    20px,
+    "21":    21px,
+    "22":    22px,
+    "24":    24px,
+    "28":    28px,
+    "32":    32px
+), $font-size);
+
+$font-weight: ();
+$font-weight: map-merge((
+    "r":     400,
+    "m":     500,
+    "b":     700,
+), $font-weight);
+
+$font-color: ();
+$font-color: map-merge((
+    "20":      $gray-20,
+    "50":      $gray-50,
+    "90":      $gray-90,
+    "b8":      $gray-b8,
+    "d4":      $gray-d4,
+    "f1":      $gray-f1,
+    "b":       $black,
+    "w":       $white,
+    "err":     $error,
+    "warn":    $warning,
+    "pos":     $positive,
+    "suc":     $success,
+    "p-50":    $primary-500,
+    "p-40":    $primary-400,
+), $font-color);
+
+$txt_cut_line : (0,1,2,3,4,5);
+
+$font-base-color:        map-get($font-color, "50");
+$font-base-weight:       map-get($font-weight, "m");
+$font-base-size:         map-get($font-size, "15");
+
+$font-letter-spacing:    -0.5px;
+
+@mixin font-default-set {
+    font: {
+        family:          'NotoSansKR',sans-serif;
+        size:            $font-base-size;
+        weight:          $font-base-weight;
+    }
+    color:               $font-base-color;
+    letter-spacing:      $font-letter-spacing;
+}
+
+
+//------------------------------------------------
+// Component Variables
+//------------------------------------------------
+
+/*----- LAYOUT -----*/
+// header
+$header_height: 45px;
+// tab
+$tab_height:40px;
+// tab_bar
+$tab_bar_height: 50px;
+// content
+$content_padding_bottom: $tab_bar_height + 16px;
+
+/*----- HEADER -----*/
+$header_tit_txt_color:                   $gray-20;
+$header_tit_txt_size:                    15px;
+$header_tit_sub_txt_size:                14px;
+
+/*----- BUTTON -----*/
+$btn_border_color:                       $gray-90;
+// height
+$btn_height_large:                       50px;
+$btn_height_medium:                      44px;
+$btn_height_small:                       30px;
+// disabled
+$btn_disabled_bg:                        $gray-d4;
+$btn_disabled_border:                    $gray-e1;
+$btn_disabled_txt_color:                 $gray-b8;
+// default
+$btn_default_bg:                         $primary-500;
+$btn_default_bg_active:                  darken($primary-500,3%);
+$btn_default_bg_hover:                   lighten($primary-500,3%);
+$btn_default_txt_color:                  $white;
+// outline
+$btn_outline_bg:                         $white;
+$btn_outline_bg_active:                  $primary-100;
+$btn_outline_border:                     $primary-500;
+$btn_outline_border_hover:               lighten($primary-500,3%);
+$btn_outline_txt_color:                  $primary-500;
+
+/*----- PHOTO -----*/
+// size
+$photo_sizes:                            (45,50,60,70,84,96,100,110,136,175,220,262);
+$photo_circle_sizes:                     (36,45,50,70,75,80,110);
+// radius
+$photo_border_radius:();
+$photo_border_radius: map-merge((
+    "br4":                               4px,
+    "br8":                               8px,
+    "br10":                              10px
+), $photo_border_radius );
+// 삭제버튼
+$photo_delete_btn_size:                  28px;
+// default bg color
+$photo_bg_color:                         $gray-e1;
+// default border color
+$photo_border_default:                   $gray-f1;
+$photo_border_dark:                      $gray-90;
+
+/*----- TAB -----*/
+$tab_bg_color:                           $white;
+$tab_menu_border_bottom:                 $gray-d4;
+$tab_txt_color:                          $gray-50;
+$tab_txt_color_active:                   $primary-500;
+$tab_border_color:                       $primary-500;
+$tab_border_left:();
+$tab_border_left: map-merge((
+    "2_1":                               25%,
+    "2_2":                               75%,
+    "3_1":                               16.6666%,
+    "3_2":                               49.9999%,
+    "3_3":                               83.3333%,
+    "4_1":                               12.5%,
+    "4_2":                               37.5%,
+    "4_3":                               62.5%,
+    "4_4":                               87.5%,
+    "5_1":                               10%,
+    "5_2":                               30%,
+    "5_3":                               50%,
+    "5_4":                               70%,
+    "5_5":                               90%
+),$tab_border_left);
+
+/*----- INPUT -----*/
+$input_height:                           44px;
+$input_line_height:                      $input_height - 2px;
+$input_border_color:                     $gray-90;
+$input_border_color_filled:              $gray-20;
+$input_border_color_error:               $error;
+$input_radius:                           8px;
+$input_bg_disabled:                      $gray-f1;
+$input_txt_color:                        $gray-20;
+$input_txt_color_disabled:               $gray-90;
+// label
+$input_lb_margin_bottom:                 6px;
+$input_lb_txt_size:                      16px;
+$input_lb_txt_color:                     $gray-20;
+$input_lb_info_txt_size:                 12px;
+$input_lb_info_txt_color:                $gray-50;
+$input_lb_info_txt_color_confirmed:      $positive;
+$input_lb_info_txt_color_error:          $error;
+$input_lb_info_txt_icon_padding:         20px;
+$input_lb_info_txt_icon_size:            16px 16px;
+// placeholder
+$input_placeholder_color:                $gray-90;
+
+/*----- etc -----*/
+// new_badge
+$new_badge_color:                        $new;

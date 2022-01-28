@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a
+        let b
+        function* generatorFunction(){
+            console.log("시작")
+            a = yield;
+            console.log("a값",a)
+            b = yield;
+            console.log("b값",b)
+            yield a + b;
+            console.log("돌아가셈")
+        }
+
+        const generater = generatorFunction();
+        
+        console.log(generater.next(1))
+        console.log(generater.next(2))
+        console.log(generater.next(3))
+        console.log(`밖에서 확인중 : a = ${a} b = ${b}`)
+        console.log(generater.next(3))
+    </script>
+</body>
+</html>

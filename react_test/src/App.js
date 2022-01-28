@@ -1,10 +1,15 @@
 import React from 'react';
-import ColorBox from './componnents/ColorBox';
+import Sample from './componnents/Sample';
+import TestCounter from './componnents/TestCounter';
 import './css/bundle.css';
 
 function App() {
 	return (
-		<ColorBox/>
+		<div>
+			<TestCounter/>
+			<Sample/>
+		</div>
+
 	)
 }
 

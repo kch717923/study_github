@@ -1,0 +1,18 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                  Elevation                 □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+.shadow{
+    @each $name, $shadow in $shadows {
+        &#{$name}{
+            box-shadow: $shadow;
+        }
+    }
+}
+
+// z-index
+// $z-index: ();
+// $z-index: map-merge((
+// ), $z-index);

@@ -1,0 +1,67 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                    Mixin                   □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+// Position
+@mixin position($p:static, $z:null, $t:null, $r:null, $b:null, $l:null) {
+    position: $p;
+    z-index: $z;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+
+// Flex
+@mixin flex($jc:flex-start, $ai:stretch, $d:row, $wrap:nowrap) {
+    display:flex;
+    flex-direction: $d;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $wrap;
+}
+
+// Break points
+@mixin break_point($breakpoint) {
+    @each $name, $break-point in $break-points {
+        @if $breakpoint == $name {
+            @media #{$break-point} {
+                @content
+            }
+        };
+    };
+};
+@mixin pc_pop {
+    left:50%;
+    width:$pc-width;
+    margin-left: -($pc-width)/2;
+}
+
+// Text Cut
+@mixin txt_cut($line:null){
+    @if($line == null) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display:-webkit-box;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+}
+
+// background-image
+@mixin background($c:null,$img:null,$r:null,$p:null,$s:null){
+    background: {
+        color: $c;
+        image: $img;
+        repeat: $r;
+        position: $p;
+        size: $s;
+    };
+}

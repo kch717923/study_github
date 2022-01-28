@@ -1,0 +1,144 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                 Animation                  □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+/* slideUp */
+/*==================================*/
+/*
+    .bot_pop__layer-slide_up
+*/
+/*==================================*/
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+/* slideOutUp */
+/*==================================*/
+/*
+    .header-slide_off
+*/
+/*==================================*/
+@keyframes slideOutUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* slideDown */
+/*==================================*/
+/*
+    .bot_pop__layer-slide_down
+*/
+/*==================================*/
+@keyframes slideDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+/* slideInDown */
+/*==================================*/
+/*
+    .header-slide_on
+*/
+/*==================================*/
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* chk */
+/*==================================*/
+/*
+    .bot_pop__layer-slide_down
+*/
+/*==================================*/
+@keyframes chk {
+	to {
+	stroke-dashoffset: 0;
+	}
+}
+
+/* fadeInUp */
+/*==================================*/
+/*
+    .intro__tit_ani
+    .pop_toast__layer_ani
+*/
+/*==================================*/
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* fadeOutDown */
+/*==================================*/
+/*
+    .pop_toast__layer_ani-out
+*/
+/*==================================*/
+
+@keyframes fadeOutDown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* spin */
+/*==================================*/
+/*
+    .header__ico_yby_logo-on
+*/
+/*==================================*/
+
+@keyframes spin {
+    0% {transform:rotateY(0);}
+    25% {transform:rotateY(180deg);}
+    50% {transform: rotateY(360deg); opacity: 0.2;}
+    100% {opacity: 1;}
+}

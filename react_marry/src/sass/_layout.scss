@@ -1,0 +1,158 @@
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+/*□                                            □*/
+/*□                  Layout                    □*/
+/*□                                            □*/
+/*□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□*/
+
+.pc{
+    &__bg{
+        width:100%;
+        @include break_point("pc"){
+            background:#f5f5f5; overflow-y: scroll;
+        }
+    }
+    &__container{
+        width:100%;
+        @include break_point("pc"){
+            position:relative;
+            width:460px;
+            margin:0 auto;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            background:$white;
+        }
+    }
+}
+
+/* TOP - 상단 */
+.top{
+    @include position(absolute,100,0,0,null,0);
+    width:100%;
+    &-fix{
+        position:fixed;
+    }
+}
+
+/* CONTENT - 내용 */
+.content{
+    @include position(relative,10);
+    width:100%;
+    min-height:100vh;
+    padding-top:$header_height;
+    box-sizing: border-box;
+    &-bot{
+        padding-bottom:$content_padding_bottom;
+    }
+    &-gray{
+        background-color: $gray-fa;
+    }
+    &__vt_container{
+        @include flex($d:column);
+        width:100%;
+        height:100%;
+    }
+}
+
+/* BOT - 하단 */
+.bot{
+    @include position(relative,200);
+    width:100%;
+    &-fix{
+        @include position(fixed,200,null,0,0,0);
+    }
+}
+
+
+/* POP - 팝업 */
+.pop{
+    @include position(fixed,4000,0,0,0,0);
+    @include flex(center, center);
+    width:100%;
+    &__bg{
+        @include position(absolute,0,$t:0,$l:0);
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,.4);
+        &-dark{
+            background-color:rgba(0,0,0,.8);
+        }
+    }
+    &__layer{
+        @include position(relative,1);
+        width:330px;
+        max-width:96%;
+        &-pc{
+            width:360px;
+        }
+    }
+    &__full_layer{
+        @include position(absolute,1,0,null,null,0);
+        width:100%;
+        height:100vh;
+        background-color:$white;
+        overflow: hidden;
+        &-scroll{ 
+            height:100%;
+            overflow-y: auto;
+        }
+    }
+}
+
+/* BOT_POP - 팝업 */
+.bot_pop{
+    @include position(fixed,800,0,0,0,0);
+    width:100%;
+    &__bg{
+        @include position(absolute,0,0,null,null,0);
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,.4);
+    }
+    &__layer{
+        @include position(absolute,$b:0,$l:0);
+        width:100%;
+        border-radius: 10px 10px 0 0;
+        background-color:$white;
+        &-slide_up{
+            animation:slideUp .3s ease forwards;
+        }
+        &-slide_down{
+            animation:slideDown .3s ease forwards;
+        }
+    }
+}
+
+/* TOAST - 토스트 */
+.toast{
+    @include position(fixed,2000,$l:0);
+    width:100%;
+    &-top{
+        top:66px;
+    }
+    &-bot{
+        bottom:66px;
+    }
+    &-center{
+        top:50%; transform: translateY(-50%);
+    }
+}
+
+/* FLOAT - 플로팅 */
+.float{
+    @include position(fixed,300,$b:66px,$r:30px);
+    @include break_point("pc"){
+        right:50%;
+        margin-right:-215px;
+    }
+}
+
+// PC pop 처리
+.top-fix,
+.bot-fix,
+.pop,
+.bot_pop,
+.toast{
+    @include break_point("pc"){
+        @include pc_pop;
+    }
+}
