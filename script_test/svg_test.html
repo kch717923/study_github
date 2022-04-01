@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .moving-outline circle{
+            stroke-dasharray: 100;
+            stroke: blue;
+            animation: dash 0.5s linear infinite;
+        }
+        @keyframes dash {
+            to{
+                stroke-dashoffset: 2500;
+                stroke: #fff;
+            }
+        }
+        .wrap{
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: #000088;
+        }
+        .box{
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 0;
+            overflow: hidden;
+            animation: boxani 3s forwards;
+        }
+        @keyframes boxani {
+            0%{height: 0;}
+            100%{height: 300px;}
+        }
+        .red{
+            width: 250px;
+            height: 300px;
+        }
+        .test_path{
+            width: 100px;
+            height: 100px;
+            stroke: blue;
+            stroke-dasharray: 49;
+            stroke-dashoffset: 49;
+            animation: pathani 2s infinite;
+        }
+        @keyframes pathani {
+            0%{stroke-dashoffset: 49;}
+            100%{stroke-dashoffset: 0;}
+        }
+
+        svg text {
+            font-size: 50px;
+            fill:transparent;
+            stroke-dasharray: 326;
+            stroke-dashoffset: 326;
+            animation: stroke 3s linear forwards;
+            stroke:blue;
+            stroke-width: 1px;
+        }
+        svg text:nth-child(1){
+            animation-delay: 0s;
+        }
+        svg text:nth-child(2){
+            animation-delay: 0.5s;
+        }
+        svg text:nth-child(3){
+            animation-delay: 1s;
+        }
+        svg text:nth-child(4){
+            animation-delay: 1.5s;
+        }
+        svg text:nth-child(5){
+            animation-delay: 2s;
+        }
+        svg text:nth-child(6){
+            animation-delay: 2.5s;
+        }
+        svg text:nth-child(7){
+            animation-delay: 3s;
+        }
+        @keyframes stroke {
+            0% { stroke-dashoffset: 326; }
+            100% { stroke-dashoffset: 0px; }
+        }
+    </style>
+</head>
+<body>
+    <svg
+        class="moving-outline" width="453" height="453"
+        viewBox="0 0 453 453" fill="none" xmlns="http://www.w3.org/2000/svg"
+    >
+        <circle cx="100" cy="100" r="90" stroke-width="10"/>
+    </svg>
+    <div class="wrap">
+        <div class="box">
+            <img class="red" src="https://image.yeoboya.com/imgs/new_wedding_noble/img/img_noble_gold_line.png">
+        </div>
+    </div>
+    <svg class="test_path"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.38 28.89" xml:space="preserve">
+        <path fill="none" d="M.39 14.33c3.71 4.55 7.42 9.1 11.12 13.66L25.94.24"/>
+    </svg>
+    <svg width=525 height=160 viewBox="0 0 525 160">
+        <text x="0" y="50%">s</text>
+        <text x="30" y="45%">v</text>
+        <text x="60" y="50%">g</text>
+        <text x="120" y="45%">c</text>
+        <text x="150" y="50%">o</text>
+        <text x="180" y="45%">d</text>
+        <text x="210" y="50%">e</text>
+    </svg>
+    <script>
+        let a = document.querySelector('.test_path').getTotalLength();
+        console.log(a)
+    </script>
+</body>
+</html>
