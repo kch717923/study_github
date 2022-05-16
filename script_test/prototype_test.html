@@ -8,7 +8,15 @@
 </head>
 <body>
     <script>
-        
+        const a = () => {
+            console.log("a임")
+        }
+        a.a = () => {
+            console.log("a의a임")
+        }
+
+        a()
+        a.a()
     </script>
 </body>
 </html>
