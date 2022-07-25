@@ -1,11 +1,11 @@
 import React from 'react';
 
 const TodoItem = ({todo,onToggle,onRemove}) => {
-    return(
+    return (
         <div>
             <input type="checkbox"/>
-            <span>textline</span>
-            <button>del</button>
+            <span>인생</span>
+            <button>삭제</button>
         </div>
     )
 }
@@ -18,9 +18,10 @@ const Todos = ({
     onToggle,
     onRemove
 }) => {
+
     const onSubmit = e =>{
         e.preventDefault();
-    }
+    };
     return (
         <div>
             <form onSubmit={onSubmit}>

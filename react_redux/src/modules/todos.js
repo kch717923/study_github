@@ -1,15 +1,16 @@
-const CHANGE_INPUT = 'todos/CHANGE_INPUT'
-const INSERT = 'todos/INSERT'
-const TOGGLE = 'todos/TOGGLE'
-const REMOVE = 'todos/REMOVE'
+const CHANGE_INPUT = 'todos/CHANGE_INPUT';
+const INSERT = 'todos/INSERT';
+const TOGGLE = 'todos/TOGGLE';
+const REMOVE = 'todos/REMOVE';
 
-export const change_input = input => ({
+export const changeInput = input =>({
     type:CHANGE_INPUT,
     input
 })
 
 let id = 3;
-export const insert = text => ({
+
+export const insert = text =>({
     type:INSERT,
     todo:{
         id:id++,
@@ -33,18 +34,18 @@ const initialState = {
     todos:[
         {
             id:1,
-            text:'redux foundation',
-            done:true
+            text:'이이이이인생',
+            done:true,
         },
         {
             id:2,
-            text:'use react and redux',
-            done:false
+            text:'으하하하하하',
+            done:false,
         }
     ]
 }
 
-function todos (state = initialState,action){
+function todos(state = initialState,action){
     switch(action.type){
         case CHANGE_INPUT:
             return{
@@ -60,7 +61,7 @@ function todos (state = initialState,action){
             return{
                 ...state,
                 todos:state.todos.map(todo =>
-                    todo.id === action.id ? {...todo, done:!todo.done} : todo)
+                    todo.id === action.id? {...todo, done: !todo.done} : todo)
             }
         case REMOVE:
             return{
@@ -72,4 +73,4 @@ function todos (state = initialState,action){
     }
 }
 
-export default todos;
+export default todos

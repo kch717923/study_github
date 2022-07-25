@@ -1,28 +1,26 @@
-const INCREASE = 'counter/INCREASE'
-const DECREASE = 'counter/DECREASE'
+const INCREASE = 'counter/INCREASE';
+const DECREASE = 'counter/DECREASE';
 
-export const increase = ()=>({type:INCREASE})
-export const decrease = ()=>({type:DECREASE})
+export const increase = () => ({type:INCREASE});
+export const decrease = () => ({type:DECREASE});
 
 const initialState = {
     number : 0
-}
+};
 
-function reducer(state = initialState,action){
+function counter(state = initialState, action){
     switch(action.type){
         case INCREASE:
             return{
-                ...state,
                 number:state.number + 1
             }
         case DECREASE:
             return{
-                ...state,
                 number:state.number - 1
             }
         default:
-            return state
+            return state;
     }
 }
 
-export default reducer
+export default counter
